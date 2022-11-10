@@ -1,21 +1,4 @@
-from flask import Flask, render_template, request, jsonify
 
-app = Flask(__name__)
-
-import requests
-from bs4 import BeautifulSoup
-
-
-from pymongo import MongoClient
-import certifi
-
-ca = certifi.where()
-
-client = MongoClient(
-    'mongodb://test:sparta@ac-xrfxwbs-shard-00-00.3oqrgfu.mongodb.net:27017,ac-xrfxwbs-shard-00-01.3oqrgfu.mongodb.net:27017,ac-xrfxwbs-shard-00-02.3oqrgfu.mongodb.net:27017/?ssl=true&replicaSet=atlas-8rq53x-shard-0&authSource=admin&retryWrites=true&w=majority',
-    tlsCAFile = ca
-)
-db = client.sparta2
 
 @app.route('/')
 def home():
